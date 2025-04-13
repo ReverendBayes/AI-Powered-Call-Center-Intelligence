@@ -1,0 +1,29 @@
+# This YAML defines which PII types are considered sensitive
+# and how they should be treated in downstream interfaces.
+# These values can be used to drive redaction, display tagging,
+# or visual highlighting in post-call review tools.
+
+PII_LABELS:
+  US_SSN:
+    display_name: Social Security Number
+    redact: true
+
+  EMAIL_ADDRESS:
+    display_name: Email Address
+    redact: false
+
+  PHONE_NUMBER:
+    display_name: Phone Number
+    redact: false
+
+  PERSON:
+    display_name: Name
+    redact: false
+
+  LOCATION:
+    display_name: Location
+    redact: false
+
+  ACCOUNT_ID:
+    display_name: Account Number
+    redact: false

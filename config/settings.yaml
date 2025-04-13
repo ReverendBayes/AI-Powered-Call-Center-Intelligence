@@ -1,0 +1,44 @@
+# --- settings.yaml ---
+# Centralized configuration for thresholds, options, and flags
+# This controls how analysis runs, without hardcoding logic
+
+# --- Whisper transcription settings ---
+whisper_model: base  # options: tiny, base, small, medium, large
+language: en
+
+# --- Redaction settings ---
+redact:
+  enabled: true
+  strategy: "presidio"  # could support "regex" or "custom"
+  preserve_account_info: true  # don't redact phone/account ID
+  redact_entities:
+    - US_SSN
+
+# --- Sentiment analysis ---
+sentiment:
+  model: "cardiffnlp/twitter-roberta-base-sentiment"
+  normalize: true  # adjust for neutral drift
+
+# --- GPT analysis ---
+gpt:
+  use_system_prompt: true
+  use_telecom_prompt: true
+  temperature: 0.8
+  top_p: 0.9
+  max_tokens: 1920
+
+# --- DuckDB settings ---
+duckdb:
+  db_path: "analytics/call_summary.db"
+  auto_create_tables: true
+
+# --- Logging / Debugging ---
+logging:
+  level: info
+  enable_trace: false
+
+# --- Developer Flags ---
+features:
+  enable_mock_data: false
+  force_sync_mode: false
+  dry_run: false

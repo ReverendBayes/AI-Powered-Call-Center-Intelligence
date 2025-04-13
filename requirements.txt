@@ -1,0 +1,28 @@
+# --- Core Backend Dependencies ---
+fastapi==0.111.0
+uvicorn==0.19.0
+python-dotenv==1.0.1
+openai
+whisper
+spacy==3.7.5
+presidio-analyzer
+presidio-anonymizer
+torchaudio==2.0.2
+
+# --- Sentiment Analysis ---
+transformers
+
+# --- Analytics and Notebooks ---
+pandas==1.5.3
+duckdb
+altair
+jupyter
+
+# --- Optional NLP Models ---
+scikit-learn
+
+# --- Miscellaneous ---
+requests
+pathlib
+keras==2.6.0
+streamlit

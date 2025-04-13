@@ -1,0 +1,20 @@
+Analyze the following telecom customer service call and extract:
+
+1. Core issue reported by the customer (e.g., billing error, connectivity failure, equipment complaint).
+2. Classification of the issue: Billing, Connectivity, Retention, General Inquiry, Cancel.
+3. Specific resolution steps taken by the agent (e.g., diagnostics, refunds, technician scheduling).
+4. Degree of customer satisfaction at the end (choose: Satisfied, Dissatisfied, Angry, Frustrated, Neutral).
+5. Was follow-up offered or promised? (Yes/No, with details).
+6. List any personally identifiable information (PII) mentioned (e.g., phone number, email, account ID).
+7. Emotional tone progression of the customer throughout the call (e.g., Calm → Angry, Angry → Calmed, Neutral, Slow escalation, Negative but passive).
+8. Based on the emotional arc, return a recommended resolution tactic. Choose from:
+   - Early empathy and proactive follow-up (for Calm → Angry)
+   - Quick fixes and firm responses (for Angry → Calmed)
+   - Monitor for emotional volatility (for Neutral)
+   - Intervene before escalation completes (for Slow escalation)
+   - Offer tangible benefit or apology credit (for Negative but passive)
+
+Note:
+- Emotional tone should be based on clear cues in customer language.
+- Tactic must reflect behavioral patterns, not just issue type.
+- Use behavioral reasoning. If sentiment progression doesn't fit known patterns, describe the tone and suggest best-fit tactic based on customer affect and urgency.

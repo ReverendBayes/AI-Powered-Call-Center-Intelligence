@@ -1,0 +1,11 @@
+
+{
+  "core_issue": "Internet connectivity drops every evening around 8 PM.",
+  "classification": "Connectivity",
+  "resolution_steps": "Agent ran diagnostics and scheduled a technician visit.",
+  "customer_satisfaction": "Neutral",
+  "follow_up": "Yes, technician visit scheduled for next day 2-4 PM with confirmation text.",
+  "pii_detected": ["555-123-7890", "John Miller"],
+  "emotional_tone_progression": "Neutral → Frustrated → Relieved",
+  "recommended_tactic": "Quick fixes and firm responses"
+}
