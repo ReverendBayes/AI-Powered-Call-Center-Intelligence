@@ -1,0 +1,121 @@
+/* --- Global app styles for layout, typography, and theming ---
+   Cleaned up and polished to resemble the React.dev visual tone */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.App {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+.mode-toggle {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  color: #333;
+}
+
+input[type='file'], textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 9999px; /* pill shape */
+  border: none;
+  background-color: #087ea4;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+button:hover:not(:disabled) {
+  background-color: #066b90;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.output-block {
+  text-align: left;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+label {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.error-text {
+  color: red;
+  font-weight: 500;
+  margin-top: 1rem;
+}
