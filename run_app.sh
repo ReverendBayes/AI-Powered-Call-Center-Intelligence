@@ -1,24 +1,24 @@
 #!/bin/bash
 
 # --- run_app.sh ---
-# Launches the FastAPI backend using uvicorn, then opens the frontend
-# Good for demos, testing, or spinning up locally with one command
+# Launches the FastAPI backend on port 8001, then opens the React frontend
+# Ideal for quick demos and local testing
 
-# Optional: preload test data via duckdb_loader (uncomment if needed)
+# Optional: preload test data (uncomment if needed)
 # echo "Loading test data into DuckDB..."
 # python analytics/duckdb_loader.py
 
-# Start the FastAPI backend
-echo "Starting FastAPI backend..."
-uvicorn backend.main:app --reload &
+# Start the FastAPI backend on port 8001
+echo "🔁 Starting FastAPI backend on http://localhost:8001 ..."
+uvicorn backend.main:app --reload --port 8001 &
 
-# Give the backend a second to boot
+# Wait a few seconds to let backend spin up
 sleep 2
 
-# Open the React frontend in default browser
-echo "Opening frontend..."
+# Open frontend in default browser
+echo "🌐 Opening React frontend..."
 open http://localhost:3000
 
-# Reminder for frontend
-echo "Make sure your React app is running in another terminal:"
+# Helpful reminder
+echo "Reminder: In another terminal, start the frontend with:"
 echo "cd frontend && npm start"
