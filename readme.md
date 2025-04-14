@@ -21,7 +21,7 @@ Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII r
 
 1. **Transcribes** calls with OpenAI Whisper
 2. **Redacts** PII with spaCy + Presidio
-3. **Analyzes** behavior with GPT-4o Mini (custom telecom_prompt)
+3. **Analyzes** behavior with GPT-3.5 (custom telecom_prompt)
 4. **Detects** sentiment with HuggingFace models
 5. **Visualizes** post-call trends via DuckDB + Altair
 6. **Delivers** results in-browser with a fast, styled React frontend
@@ -71,8 +71,7 @@ AI-Powered-Call-Center-Intelligence/
 │   ├── test_gpt_prompt.py
 │   └── test_redaction.py
 │
-├── .env                    # Local OpenAI API keys (never commit)
-├── .gitignore
+├── .env                    # Put your .env with your OpenAI key here
 ├── run_app.sh              # CLI launcher for backend
 ├── requirements.txt
 └── README.md
@@ -82,7 +81,7 @@ AI-Powered-Call-Center-Intelligence/
 
 ## ✨ Features
 
-- Upload audio or text — get structured insights
+- Upload audio or text — get structured insights (the backend is structured to support real-time audio hook-ups)
 - Emotional arc detection (e.g., Calm → Angry)
 - Tactic recommendation engine using structured GPT prompting
 - PII masking that preserves useful metadata (e.g. phone/account)
