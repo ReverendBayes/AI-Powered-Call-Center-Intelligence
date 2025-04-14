@@ -15,7 +15,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # --- initialize FastAPI app ---
-# this powers your backend server for both upload + insight APIs
+# this powers the backend server for both upload + insight APIs
 app = FastAPI()
 
 # --- enable CORS (important for local frontend testing) ---
