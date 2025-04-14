@@ -13,6 +13,7 @@ with open("backend/models/system_prompt.txt", "r") as sys_file:
 with open("backend/models/telecom_prompt.txt", "r") as user_file:
     telecom_prompt = user_file.read()
 
+
 def analyze_transcript(transcript: str) -> str:
     """
     Given a transcript string, send it to OpenAI GPT with the structured telecom prompt
@@ -22,13 +23,13 @@ def analyze_transcript(transcript: str) -> str:
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": transcript + "\n\n" + telecom_prompt}
     ]
-    # gpt-4o-mini-2024-07-18 is a cheaper model if token cost is a priority
+
     try:
         completion = openai.ChatCompletion.create(
-            model="gpt-4o",
+            model="gpt-3.5-turbo",  # compatibility with openai==0.28.0
             messages=messages,
-            temperature=0.9,
-            top_p=0.9,
+            temperature=0.8,        # creative but still stable
+            top_p=0.9,              # nucleus sampling
             max_tokens=1000
         )
         return completion.choices[0].message.content.strip()
