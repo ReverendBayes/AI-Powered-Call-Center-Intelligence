@@ -22,12 +22,13 @@ def analyze_transcript(transcript: str) -> str:
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": transcript + "\n\n" + telecom_prompt}
     ]
-
+    # gpt-4o-mini-2024-07-18 is a cheaper model if token cost is a priority
     try:
         completion = openai.ChatCompletion.create(
             model="gpt-4o",
             messages=messages,
-            temperature=0.7,
+            temperature=0.9,
+            top_p=0.9,
             max_tokens=1000
         )
         return completion.choices[0].message.content.strip()
