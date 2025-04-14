@@ -11,12 +11,39 @@ function TextUpload() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // handle changes to pasted or typed text
+  // Format insights: label on top line, bolded answer below
+  const formatInsights = (text: string) => {
+    const lines = text
+      .replace(/[\u{1F300}-\u{1F6FF}]/gu, '') // strip emojis
+      .split('\n')
+      .map((line) => {
+        const match = line.match(/^(\d+\..*?):\s*(.*)$/);
+        if (match) {
+          return `<div style="margin-bottom: 1rem;">${match[1]}:<br/><strong>${match[2]}</strong></div>`;
+        }
+        return `<div style="margin-bottom: 1rem;">${line}</div>`;
+      });
+    return lines.join('');
+  };
+
+  // Format transcript: bold speaker names
+  const formatTranscript = (text: string) => {
+    return text
+      .split('\n')
+      .map((line) => {
+	const match = line.match(/^\s*(Agent|Customer):\s*(.*)$/i);
+        if (match) {
+          return `<div style="margin-bottom: 0.75rem;"><strong>${match[1]}:</strong> ${match[2]}</div>`;
+        }
+        return `<div style="margin-bottom: 0.75rem;">${line}</div>`;
+      })
+      .join('');
+  };
+
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
   };
 
-  // handle uploaded .txt files
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -28,7 +55,6 @@ function TextUpload() {
     reader.readAsText(file);
   };
 
-  // send transcript to FastAPI for GPT analysis
   const handleSubmit = async () => {
     if (!inputText.trim()) {
       setError('Transcript input is empty.');
@@ -44,7 +70,7 @@ function TextUpload() {
     formData.append('transcript', inputText);
 
     try {
-      const response = await fetch('http://localhost:8000/analyze-text', {
+      const response = await fetch('http://localhost:8001/analyze-text', {
         method: 'POST',
         body: formData,
       });
@@ -86,17 +112,39 @@ function TextUpload() {
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {transcript && (
-        <div>
-          <h3>Transcript</h3>
-          <pre>{transcript}</pre>
-        </div>
-      )}
-
       {insights && (
         <div>
           <h3>Insights</h3>
-          <pre>{insights}</pre>
+          <div
+            style={{
+              whiteSpace: 'pre-wrap',
+              fontFamily: 'Inter, sans-serif',
+              lineHeight: '1.6',
+              fontSize: '1rem',
+              padding: '1rem',
+              backgroundColor: '#f9f9f9',
+              borderRadius: '8px',
+            }}
+            dangerouslySetInnerHTML={{ __html: formatInsights(insights) }}
+          />
+        </div>
+      )}
+
+      {transcript && (
+        <div>
+          <h3>Transcript</h3>
+          <div
+            style={{
+              whiteSpace: 'pre-wrap',
+              fontFamily: 'Inter, sans-serif',
+              lineHeight: '1.6',
+              fontSize: '1rem',
+              padding: '1rem',
+              backgroundColor: '#f9f9f9',
+              borderRadius: '8px',
+            }}
+            dangerouslySetInnerHTML={{ __html: formatTranscript(transcript) }}
+          />
         </div>
       )}
     </div>
