@@ -2,7 +2,7 @@
 
 A full-stack, local-first behavioral intelligence engine for telecom support calls.
 
-Combining Whisper transcription, GPT-4o insights, PII redaction, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls.
+Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls.
 
 ---
 
