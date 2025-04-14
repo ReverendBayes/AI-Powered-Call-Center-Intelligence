@@ -102,13 +102,9 @@ Analyze the following telecom customer service call and extract:
 4. Customer satisfaction at end
 5. Was follow-up promised?
 6. List any PII mentioned
-7. Emotional tone progression (e.g. Calm → Angry)
-8. Recommended resolution tactic:
-   - Early empathy and follow-up
-   - Quick fix and firm response
-   - Monitor for volatility
-   - Intervene pre-escalation
-   - Offer benefit or apology credit
+7. Emotional tone progression 
+8. Recommended resolution tactic
+9. Supervisor guidance
 ```
 
 ---
@@ -138,33 +134,110 @@ Analyze the following telecom customer service call and extract:
 
 This is a **standalone**, open-source version of Microsoft’s call intelligence accelerator:
 
-- Uses Whisper + GPT-4o from OpenAI
+- Uses Whisper + GPT-3.5 from OpenAI
 - All redaction and classification handled locally
 - No subscriptions, no vendor lock-in
 
 ---
 
-## ⛓ Requirements
+## 🔌 Requirements
 
-Python 3.9+
+**Python 3.10.13**
+
+This project uses **Python 3.10.13** for maximum compatibility with legacy OpenAI libraries (`openai==0.28.0`) and NLP tools like `whisper`, `presidio`, and `torchaudio`, which do not fully support Python 3.11+.
+
+Python 3.10.13:
+- Works reliably with `torch`, `torchaudio`, `keras==2.6.0`, and Whisper
+- Avoids dependency issues with `presidio`, `spacy`, and `openai==0.28.0`(which works with the chatgpt 3.5 model, which has cheaper token use than more newer models)
+- Used as the target version throughout development
+
+I recommend [pyenv](https://github.com/pyenv/pyenv) to install Python 3.10.13 locally:
+
+```bash
+pyenv install 3.10.13
+pyenv local 3.10.13
+```
+Install all Python dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Add `.env`:
+Or install them manually:
+
 ```bash
+pip install fastapi==0.111.0
+pip install uvicorn==0.19.0
+pip install python-dotenv==1.0.1
+pip install openai==0.28.0
+pip install git+https://github.com/openai/whisper.git
+pip install spacy==3.7.5
+pip install presidio-analyzer
+pip install presidio-anonymizer
+pip install torchaudio==2.0.2
+pip install transformers
+pip install pandas==1.5.3
+pip install duckdb
+pip install altair
+pip install jupyter
+pip install scikit-learn
+pip install requests
+pip install pathlib
+pip install keras==2.6.0
+pip install streamlit
+```
+
+Then add a `.env` file in the project root:
+
+```env
 OPENAI_API_KEY=sk-xxxxx
 ```
 
----
-
-## 🚀 Run the App
+If you're using pipenv instead of pip:
 
 ```bash
-./run_app.sh
+pipenv install
 ```
 
-Then visit: [http://localhost:3000](http://localhost:3000)
+Make sure `python --version` returns `3.10.13` inside your environment.
+
+---
+
+## 🚀  Running the App
+
+### 1. Start the backend (FastAPI)
+
+```bash
+uvicorn backend.main:app --reload --port 8001
+```
+
+> ℹ️ We use port `8001` instead of the default `8000` to avoid conflicts with React’s dev server or background processes.
+
+---
+
+### 2. Start the frontend (React + TypeScript)
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Then open your browser at: [http://localhost:3000](http://localhost:3000)
+
+---
+
+### ✅ Configure frontend to talk to backend
+
+Make sure your React frontend points to `http://localhost:8001`.  
+Example in your fetch call:
+
+```ts
+const response = await fetch('http://localhost:8001/analyze-text', {
+  method: 'POST',
+  body: formData,
+});
+```
 
 ---
 
