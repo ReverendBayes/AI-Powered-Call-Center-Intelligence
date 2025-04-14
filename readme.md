@@ -108,6 +108,13 @@ Analyze the following telecom customer service call and extract:
 ```
 
 ---
+## 🖼️ Example Output
+
+Here’s a sample of what you’ll see after analyzing a call:
+
+![Example Output](public/example-output.png)
+
+---
 
 ## ⚡ Live UI (localhost)
 
