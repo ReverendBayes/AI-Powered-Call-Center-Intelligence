@@ -81,7 +81,8 @@ AI-Powered-Call-Center-Intelligence/
 
 ## ✨ Features
 
-- Upload audio or text — get structured insights (the backend is structured to support real-time audio hook-ups)
+- Upload audio or text — get structured insights 
+- Backend includes hooks for real-time call ingestion (e.g. Twilio, voice APIs)
 - Emotional arc detection (e.g., Calm → Angry)
 - Tactic recommendation engine using structured GPT prompting
 - PII masking that preserves useful metadata (e.g. phone/account)
@@ -121,7 +122,7 @@ Here’s a sample of what you’ll see after analyzing a call:
 
 ## ⚡ Live UI (localhost)
 
-- Built with React + TypeScript, styled to match React.dev
+- Built with React + TypeScript, styled to be clean and user-friendly
 - Upload panel: audio file → transcript → insights
 - Text panel: paste a transcript → get analysis
 - Outputs display with JSON structure and preformatted blocks
@@ -130,7 +131,7 @@ Here’s a sample of what you’ll see after analyzing a call:
 
 ## 📊 Post-Call Analytics
 
-- Notebook powered by DuckDB + Altair
+- View post-call analytics via Jupyter dashboards (Altair + DuckDB)
 - In-memory or persistent call storage
 - Charts include:
   - Emotional progression
