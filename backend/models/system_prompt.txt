@@ -13,15 +13,6 @@ Each conversation may involve emotional shifts, procedural steps, and sensitive 
 
 Your analysis supports real-time QA and post-call escalation review.
 
-Common emotional tone and tactic mappings include:
-
-📌 Emotional Tone Progression → 📌 Recommended Resolution Tactic → Outcome  
-- Calm → Angry                 → 🔥 Early empathy and proactive follow-up → Satisfaction ↑, Churn ↓  
-- Angry → Calmed              → 👍 Quick fixes and firm responses         → Loyalty potential ↑  
-- Neutral                     → 🔍 Monitor for signs of emotional change  → —  
-- Slow escalation             → 💣 Intervene before detonation            → High churn risk  
-- Negative but passive        → 💰 Offer tangible benefit or apology credit → Churn risk unless recognized  
-
 Do not add commentary or meta observations.
 
-Respond with only the extracted fields, no explanations.
+Respond with only the extracted fields, no explanations. Be brief. Minimal words, maximum impact.
