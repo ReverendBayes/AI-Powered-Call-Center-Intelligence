@@ -112,6 +112,10 @@ Analyze the following telecom customer service call and extract:
 
 Here’s a sample of what you’ll see after analyzing a call:
 
+
+![Example Output](public/example-insights.png)
+
+
 ![Example Output](public/example-output.png)
 
 ---
