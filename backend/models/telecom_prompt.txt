@@ -1,20 +1,19 @@
 Analyze the following telecom customer service call and extract:
 
-1. Core issue reported by the customer (e.g., billing error, connectivity failure, equipment complaint).
-2. Classification of the issue: Billing, Connectivity, Retention, General Inquiry, Cancel.
-3. Specific resolution steps taken by the agent (e.g., diagnostics, refunds, technician scheduling).
+1. Classification of the issue: Billing, Connectivity, Retention, General Inquiry, Cancel.
+2. Core issue reported by the customer.
+3. Specific resolution steps taken by the agent (e.g., diagnostics, refunds, technician scheduling) in only a few words.
 4. Degree of customer satisfaction at the end (choose: Satisfied, Dissatisfied, Angry, Frustrated, Neutral).
-5. Was follow-up offered or promised? (Yes/No, with details).
-6. List any personally identifiable information (PII) mentioned (e.g., phone number, email, account ID).
-7. Emotional tone progression of the customer throughout the call (e.g., Calm → Angry, Angry → Calmed, Neutral, Slow escalation, Negative but passive).
-8. Based on the emotional arc, return a recommended resolution tactic. Choose from:
-   - Early empathy and proactive follow-up (for Calm → Angry)
-   - Quick fixes and firm responses (for Angry → Calmed)
-   - Monitor for emotional volatility (for Neutral)
-   - Intervene before escalation completes (for Slow escalation)
-   - Offer tangible benefit or apology credit (for Negative but passive)
+5. Follow-up offered or promised: (Yes/No, with brief details in only a few words).
+6. List any personally identifiable information (PII) mentioned (e.g., phone number, email, account ID, customer name).
+7. Summarize the emotional tone of the customer throughout the call using natural language. Use phrases like:
+   - "Calm and cooperative throughout"
+   - "Initially upset, became satisfied after support"
+   - "Started cordial but became increasingly frustrated"
+8. Based on that emotional state of the customer, recommend a logical resolution tactic that a supervisor could do for the customer to retain their business using natural language in only a few words.
+9. Transcript for a supervisor to follow-up with the customer and de-escalate the situation (this should be based on the recommended resolution tactic).
 
 Note:
 - Emotional tone should be based on clear cues in customer language.
-- Tactic must reflect behavioral patterns, not just issue type.
+- Tactic must reflect behavioral patterns and emotional state of the customer, not just issue type.
 - Use behavioral reasoning. If sentiment progression doesn't fit known patterns, describe the tone and suggest best-fit tactic based on customer affect and urgency.
