@@ -105,7 +105,6 @@ Analyze the following telecom customer service call and extract:
 7. Emotional tone progression
 8. Churn risk
 9. Recommended resolution tactic
-10. Supervisor guidance
 ```
 
 ---
