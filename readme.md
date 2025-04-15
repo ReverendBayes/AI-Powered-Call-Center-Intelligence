@@ -102,9 +102,10 @@ Analyze the following telecom customer service call and extract:
 4. Customer satisfaction at end
 5. Was follow-up promised?
 6. List any PII mentioned
-7. Emotional tone progression 
-8. Recommended resolution tactic
-9. Supervisor guidance
+7. Emotional tone progression
+8. Churn risk
+9. Recommended resolution tactic
+10. Supervisor guidance
 ```
 
 ---
