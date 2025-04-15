@@ -21,7 +21,7 @@ Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII r
 
 1. **Transcribes** calls with OpenAI Whisper
 2. **Redacts** PII with spaCy + Presidio
-3. **Analyzes** behavior with GPT-3.5 (custom telecom_prompt)
+3. **Analyzes** behavior with GPT-3.5 customized prompts (cheaper tokens, just as effective)
 4. **Detects** sentiment with HuggingFace models
 5. **Visualizes** post-call trends via DuckDB + Altair
 6. **Delivers** results in-browser with a fast, styled React frontend
