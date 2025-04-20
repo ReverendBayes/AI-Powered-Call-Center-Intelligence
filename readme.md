@@ -91,7 +91,7 @@ AI-Powered-Call-Center-Intelligence/
 
 ---
 
-## 🧠 Prompt Logic (telecom_prompt)
+## Prompt Logic (telecom_prompt)
 
 ```
 Analyze the following telecom customer service call and extract:
@@ -108,7 +108,7 @@ Analyze the following telecom customer service call and extract:
 ```
 
 ---
-## 🖼️ Example Output
+## Example Output
 
 Here’s a sample of what you’ll see after analyzing a call:
 
@@ -141,7 +141,7 @@ Here’s a sample of what you’ll see after analyzing a call:
 
 ---
 
-## 🧩 No Azure or Power BI Required
+## No Azure or Power BI Required
 
 This is a **standalone**, open-source version of Microsoft’s call intelligence accelerator:
 
