@@ -2,7 +2,7 @@
 
 A full-stack, local-first behavioral intelligence engine for telecom support calls.
 
-Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls.
+Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, next best offer generation, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls. It doesn't stop at classification: it helps supervisors act, follow up, and retain.
 
 ---
 
@@ -11,20 +11,83 @@ Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII r
 - Real-time speech-to-text pipelines that actually work
 - Churn risk, emotional escalation, and issue classification — extracted live
 - Upload audio **or** raw transcripts, get clean insights
-- Resolution tactic suggestions tailored by behavioral trajectory
+- **Next Best Offer** recommendations tailored to retention risk
+- Supervisor-ready **follow-up script snippets** based on issue and resolution
+- Resolution tactic suggestions customized by behavioral trajectory
 - Open architecture — no Azure, no Power BI
-- UI designed to be *user-mesmerizing*, built with **React + TypeScript**
+- UI built with **React + TypeScript**
 
 ---
 
 ## 🔍 What It Does
 
-1. **Transcribes** calls with OpenAI Whisper
-2. **Redacts** PII with spaCy + Presidio
-3. **Analyzes** behavior with GPT-3.5 customized prompts (cheaper tokens, just as effective)
-4. **Detects** sentiment with HuggingFace models
-5. **Visualizes** post-call trends via DuckDB + Altair
-6. **Delivers** results in-browser with a fast, styled React frontend
+1. **Transcribes** calls with OpenAI Whisper  
+2. **Redacts** PII with spaCy + Presidio  
+3. **Analyzes** behavior with GPT-3.5 customized prompts (cheaper tokens, just as effective)  
+4. **Detects** sentiment with HuggingFace models  
+5. **Recommends** personalized **Next Best Offers** to retain high-risk customers  
+6. **Generates** empathetic, ready-to-use **follow-up scripts** for supervisors  
+7. **Visualizes** post-call trends via DuckDB + Altair  
+8. **Delivers** results in-browser with a fast, styled React frontend  
+
+---
+
+## Why We Added the Next Best Offer and Script Snippets (v2.0)
+
+The **Next Best Offer (NBO)** and **script snippet** additions serve two connected goals: improving customer retention and enabling supervisors to act quickly and effectively when churn risk is high.
+
+### Why This Matters
+
+Most telecom summarization tools stop at classifying issues and identifying customer sentiment. But when a customer is flagged as a high churn risk, it's not enough to acknowledge their frustration — the system must recommend what to offer and how to communicate it.
+
+These additions close that loop.
+
+---
+
+### 1. Next Best Offer (NBO)
+
+**What it does:**  
+- Recommends a concrete incentive to retain a high-risk customer.  
+- Selects or generates a customer-facing offer using cues from the call.  
+
+**Why it's important:**  
+- Telecoms routinely use NBO systems to reduce churn through tailored offers.  
+- This model defaults to practical suggestions like a one-month service credit or a discounted data upgrade, avoiding vague or generic outputs like “None” or “Escalate to loyalty.”  
+- It ensures that retention incentives can still be surfaced when no model output is available or integrated.
+
+---
+
+### 2. Suggested Script Snippet
+
+**What it does:**  
+- Generates short, empathetic, ready-to-read lines for supervisors during follow-up calls.  
+- Incorporates the customer’s issue, the resolution, and the NBO directly into the script.  
+
+**Why it's important:**  
+- Supervisors must follow up with both clarity and empathy.  
+- Script generation reduces guesswork and aligns tone across agents.  
+- It ensures the offer recommended in the NBO is delivered in a persuasive, human-centered way.
+
+---
+
+### The Resulting Flow
+
+Call Transcript → High Churn Risk → NBO Suggested → Script Generated → Supervisor Follow-up → Customer Retained
+
+This moves the system from passive labeling to proactive retention — combining automation with empathy.
+
+---
+### 🔗 Optional: Integrate a Trained Telecom Churn Predictor
+
+This project optionally integrates with a trained telecom churn machine-learning model from [Telecom-Churn-Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/tree/main), which achieves **95% accuracy** on real-world telecom data. When enabled, the pipeline uses PII redaction to extract the customer’s phone number, then passes it into the model to return a churn risk classification — **High**, **Medium**, or **Low** — based on historical behavior patterns.
+
+This integration is critical because only **1 in 26 customers** will actually inform a company before leaving. The model surfaces silent churn signals that behavioral call analysis alone may miss, providing a more objective and data-grounded view of retention risk.
+
+The churn score is embedded directly into the insights output and drives personalized Next Best Offer (NBO) and follow-up script recommendations.
+
+If the churn model is not connected, the system defaults to GPT-3.5 to estimate churn risk using contextual patterns from the call — such as unresolved complaints, emotional volatility, and dissatisfaction cues. These inferences are supported by real-time sentiment signals extracted using HuggingFace transformers and a fine-tuned DistilBERT model. GPT then recommends offers and actions based on the combined emotional trajectory, conversational behavior of the customer, along with the Core Issue reported by the customer.
+
+* Special thanks to [Mehmet](https://github.com/mmustafaicer) for originally suggesting the integration of a Next Best Offer system into the pipeline — very smart.
 
 ---
 
