@@ -79,7 +79,7 @@ This moves the system from passive labeling to proactive retention — combining
 ---
 ### 🔗 Optional: Integrate a Trained Telecom Churn Predictor
 
-This project optionally integrates with a trained telecom churn machine-learning model from [Telecom-Churn-Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/tree/main), which achieves **95% accuracy** on real-world telecom data. When enabled, the pipeline uses PII redaction to extract the customer’s phone number, then passes it into the model to return a churn risk classification — **High**, **Medium**, or **Low** — based on historical behavior patterns.
+This project optionally integrates with a trained telecom churn machine-learning model from [Telecom-Churn-Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/tree/main), which achieves **94.6% accuracy** on real-world telecom data. When enabled, the pipeline uses PII redaction to extract the customer’s phone number, then passes it into the model to return a churn risk classification — **High**, **Medium**, or **Low** — based on historical behavior patterns.
 
 This integration is critical because only **1 in 26 customers** will actually inform a company before leaving. The model surfaces silent churn signals that behavioral call analysis alone may miss, providing a more objective and data-grounded view of retention risk.
 
