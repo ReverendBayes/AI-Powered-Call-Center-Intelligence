@@ -195,7 +195,6 @@ pip install scikit-learn
 pip install requests
 pip install pathlib
 pip install keras==2.6.0
-pip install streamlit
 ```
 
 Then add a `.env` file in the project root:
