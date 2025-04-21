@@ -113,7 +113,7 @@ Analyze the following telecom customer service call and extract:
 Here’s a sample of what you’ll see after analyzing a call:
 
 
-![Example Output](public/example-insights.png)
+![Example Output](public/example-insights-high-churn-risk-nbo.png)
 
 
 ![Example Output](public/example-output.png)
@@ -192,6 +192,8 @@ pip install duckdb
 pip install altair
 pip install jupyter
 pip install scikit-learn
+pip install xgboost
+pip install imbalanced-learn
 pip install requests
 pip install pathlib
 pip install keras==2.6.0
