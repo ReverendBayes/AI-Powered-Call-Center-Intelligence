@@ -4,6 +4,20 @@ A full-stack, local-first behavioral intelligence engine for telecom support cal
 
 Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, next best offer generation, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls. It doesn't stop at classification: it helps supervisors act, follow up, and retain.
 
+## 🔁 Integration with Advanced Machine Learning Churn Predictor (~95% Accuracy)
+
+This platform can be **combined with the [Telecom Churn Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/)**  to extend real-time call analysis into actionable retention strategies.
+
+The churn model:
+
+- Predicts which customers are likely to leave using a **stacked ensemble of four classifiers**.  
+- Built with **real telecom data**, trained with **stratified validation**, and fully reproducible.  
+- Includes a complete pipeline: **feature engineering**, **model stacking**, and **evaluation**.
+
+> *For context, the telecom company this was built for was previously relying on a spaCy-based model that achieved only ~40% accuracy.*
+
+By integrating both tools, telecom teams can surface cancellation intent **in real time** and **predict long-term churn risk**, allowing for smarter retention offers and better customer outcomes.
+
 ---
 
 ## ✅ Use This If You Need:
@@ -32,7 +46,7 @@ Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII r
 
 ---
 
-## Why We Added the Next Best Offer and Script Snippets (v2.0)
+## Next Best Offer and Script Snippets (v2.0)
 
 The **Next Best Offer (NBO)** and **script snippet** additions serve two connected goals: improving customer retention and enabling supervisors to act quickly and effectively when churn risk is high.
 
