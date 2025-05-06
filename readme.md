@@ -4,8 +4,7 @@ A full-stack, local-first behavioral intelligence engine for telecom support cal
 
 Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, next best offer generation, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls. It doesn't stop at classification: it helps supervisors act, follow up, and retain.
 
-## 🔁 Integration with Advanced Machine Learning Churn Predictor (~95% Accuracy)
-
+## 🔁 Real-Time AI + Deep Learning–Trained Churn Predictor (~95% Accuracy)
 This platform can be **combined with the [Telecom Churn Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/)**  to extend real-time call analysis into actionable retention strategies.
 
 The churn model:
