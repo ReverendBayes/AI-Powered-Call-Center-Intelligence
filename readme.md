@@ -13,7 +13,7 @@ The churn model:
 - Built with **real telecom data**, trained with **stratified validation**, and fully reproducible.  
 - Includes a complete pipeline: **feature engineering**, **model stacking**, and **evaluation**.
 
-> *For context, Charter Telecom, the company this was built for was previously relying on a spaCy-based model that achieved only ~40% accuracy.*
+> *For context, Charter Communications, the telecom company this was built for, was previously relying on a spaCy-based model that achieved only ~40% accuracy.*
 
 By integrating both tools, telecom teams can surface cancellation intent **in real time** and **predict long-term churn risk**, allowing for smarter retention offers and better customer outcomes.
 
