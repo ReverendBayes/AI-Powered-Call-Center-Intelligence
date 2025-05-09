@@ -4,18 +4,22 @@ A full-stack, local-first behavioral intelligence engine for telecom support cal
 
 Combining Whisper transcription, GPT-3.5 insights (affordable token cost), PII redaction, next best offer generation, and visual analytics — this project gives supervisors real-time understanding of what customers feel, need, and signal during calls. It doesn't stop at classification: it helps supervisors act, follow up, and retain.
 
-## 🔁 Real-Time AI + Trained Machine Learning Churn Predictor (~95% Accuracy)
-This platform can be **combined with the [Telecom Churn Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/)**  to extend real-time call analysis into actionable retention strategies.
+## 🔁 Real-Time AI + Trained Machine Learning Churn Predictor (\~95% Accuracy)
+
+This platform can be **combined with the [Telecom Churn Predictor](https://github.com/ReverendBayes/Telecom-Churn-Predictor/)** to extend real-time call analysis into actionable retention strategies.
 
 The churn model:
 
-- Predicts which customers are likely to leave using a **stacked ensemble of four classifiers**.  
-- Built with **real telecom data**, trained with **stratified validation**, and fully reproducible.  
-- Includes a complete pipeline: **feature engineering**, **model stacking**, and **evaluation**.
+* Predicts which customers are likely to leave using a **stacked ensemble of four classifiers**
+* Built with **real telecom data**, trained with **stratified validation**, and fully reproducible
+* Includes a complete pipeline: **feature engineering**, **model stacking**, and **evaluation**
 
-> *For context, Charter Communications, the telecom company this was built for, was previously relying on a spaCy-based model that achieved only ~40% accuracy.*
+> *For context, Charter Communications — the telecom company this was built for — was previously relying on a spaCy-based model that achieved only \~40% accuracy.*
 
-By integrating both tools, telecom teams can surface cancellation intent **in real time** and **predict long-term churn risk**, allowing for smarter retention offers and better customer outcomes.
+By integrating both tools, telecom teams can surface cancellation intent **in real time** and predict **long-term churn risk**, enabling smarter retention offers and materially better customer outcomes.
+
+—
+*[Mehmet](https://github.com/mmustafaicer), at Charter Communications, suggested exploring a Next Best Offer (NBO) system — a concept that’s not a natural fit for telecom, where there are few core products (typically bundled) and limited upsell diversity. Traditional NBO logic works best in high-SKU, frequent-interaction domains like Amazon (thousands of products, high velocity) or Netflix (rapidly rotating catalogs). Telecom, by contrast, has sparse product sets but deep behavioral data. This implementation reframes NBO using behavioral clustering and usage pattern analysis, aligning offer logic with customer need-states rather than product similarity — a better fit for the domain than standard e-commerce recommenders.*
 
 ---
 
@@ -99,8 +103,6 @@ This integration is critical because only **1 in 26 customers** will actually in
 The churn score is embedded directly into the insights output and drives personalized Next Best Offer (NBO) and follow-up script recommendations.
 
 If the churn model is not connected, the system defaults to GPT-3.5 to estimate churn risk using contextual patterns from the call — such as unresolved complaints, emotional volatility, and dissatisfaction cues. These inferences are supported by real-time sentiment signals extracted using HuggingFace transformers and a fine-tuned DistilBERT model. GPT then recommends offers and actions based on the combined emotional trajectory, conversational behavior of the customer, along with the Core Issue reported by the customer.
-
-* Special thanks to [Mehmet](https://github.com/mmustafaicer) for originally suggesting the integration of a Next Best Offer system into the pipeline — very smart.
 
 ---
 
