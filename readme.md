@@ -103,7 +103,7 @@ This moves the system from passive labeling to proactive retention — combining
 
 ---
 
-## 🏛️ Architecture
+## Architecture
 
 ```bash
 AI-Powered-Call-Center-Intelligence/
