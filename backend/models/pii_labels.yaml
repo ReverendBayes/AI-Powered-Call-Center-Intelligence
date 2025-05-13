@@ -20,10 +20,14 @@ PII_LABELS:
     display_name: Name
     redact: false
 
-  LOCATION:
-    display_name: Location
+  ADDRESS:
+    display_name: Address
     redact: false
 
   ACCOUNT_ID:
     display_name: Account Number
+    redact: false
+
+  DATE_TIME:
+    display_name: Date & Time
     redact: false
