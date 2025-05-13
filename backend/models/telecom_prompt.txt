@@ -1,6 +1,8 @@
 Analyze the following telecom customer service call and extract:
 
-1. Classification of the issue: Billing, Connectivity, Retention, General Inquiry, Cancel.  
+1. Classification of the issue: Billing, Connectivity, Customer Service Issue, General Inquiry, Cancellation.  
+     - If the classification is “Cancellation”, then identify the core cancellation reason (e.g., Price – Too Expensive, Price – Better Offer, Not Using the Service, Customer Service Experience).
+
 2. Core issue reported by the customer.  
 3. Specific resolution steps taken by the agent (e.g., diagnostics, refunds, technician scheduling) in only a few words.  
 4. Degree of customer satisfaction at the end (choose: Satisfied, Dissatisfied, Angry, Frustrated, Neutral).  
@@ -12,36 +14,15 @@ Analyze the following telecom customer service call and extract:
    - "Started cordial but became increasingly frustrated"  
 8. Churn Risk Level: {churn_risk_level}  
    - If your churn model level is provided, echo it exactly.  
-   - If the placeholder is empty or “None”, estimate the risk yourself using behavioral cues of the customer from the phone call transcript and justify briefly.
+   - If the placeholder is empty or “None”, estimate the risk yourself using behavioral cues and justify briefly.
 
-9. Next Best Offer (only if churn risk is High):
-   - If a model-based recommendation is available, use it.
-   - Otherwise, suggest a specific, customer-facing incentive using common telecom retention tactics. Do not say "None", "Not applicable", or "Escalate to loyalty team".
-   - Valid examples include:
-     • One-month service credit  
-     • Discounted upgrade to unlimited data  
-     • Waived activation or reconnection fees  
-     • Free mobile hotspot for 3 months  
-     • Loyalty plan with extra data rollover  
-     • Early device upgrade offer  
-     • Streaming subscription included (e.g., HBO, Spotify, Netflix)  
-     • 10–20% discount on monthly bill for 6–12 months  
-   - Tailor your suggestion to the customer's complaint and churn risk level. The offer should feel persuasive, practical, and aligned with retention goals.
+9. Next Best Offer: {next_best_offer}  
+   - If your NBO model recommendation is provided, echo it exactly.  
+   - If the placeholder is empty or “None”, choose the best offer based on predicted retention uplift.
 
-10. Retention Tactic (only if churn risk is High):
-   - Build on the Next Best Offer in #9 by recommending how the agent or supervisor can *deploy or enhance* that offer to retain the customer.
-   - This may include combining the offer with a high-touch follow-up, loyalty reward bundling, or process tweaks that improve impact.
-   - Do not repeat #9 verbatim. Add strategic value.  
-   - Examples:  
-     • Combine a one-month credit with a loyalty callback and apology  
-     • Offer to waive early termination *if* the customer tries the unlimited plan for 30 days  
-     • Auto-enroll the customer in a VIP service tier or callback queue  
-     • Pair a device upgrade with a limited-time contract lock-in bonus
- 
+10. If churn risk is High, recommend a specific retention tactic the agent or supervisor could apply (e.g., account credit, follow‑up call, escalation to loyalty team).  
 11. Actionable insights for a supervisor to follow‑up with the customer and de‑escalate the situation (this should be based on the retention tactic).  
-12. Suggested script snippet for follow‑up call: Provide one or two concise agent lines the supervisor can read verbatim in casual, direct, and empathetic language, for example:  
-"Hello [Customer Name], this is [Agent] from Spectrum. I’m really sorry you ran into [core issue] on your account. I’ve gone ahead and [resolution action], and I’ve added your [next_best_offer] to make this right. I want to make sure you’re completely satisfied—what else can I do for you today?”
-Another example:"Hi {customer_name}, this is {agent_name} from Spectrum. I’m truly sorry you’ve had to deal with {core_issue}—that must have caused you to feel {emotional_tone}. I’ve just {resolution_action} and added your {next_best_offer} to your account so you can get back on track. How does that sound? Is there anything else I can do right now to make this easier for you?"
-Do not include variables like {next_best_offer}, {core_issue}, or {resolution_action} — use their actual values. Use [Agent] exactly in brackets as shown.
-Do not substitute [Agent] with a company name or generic phrase like "this is Telco."
-You may substitute [Customer Name] and other bracketed values with their actual content.
+12. **Suggested script snippet for follow‑up call**: Provide one or two concise agent lines the supervisor can read verbatim, for example:  
+   - "Hello [Customer Name], this is [Agent] from Spectrum. I’m really sorry you ran into [core issue] on your account. I’ve gone ahead and [resolution action], and I’ve added your {next_best_offer} to make this right. I want to make sure you’re completely satisfied—what else can I do for you today?”
+12. Suggested script snippet for follow‑up call:
+   - "Hi {customer_name}, this is {agent_name} from Spectrum. I’m truly sorry you’ve had to deal with {core_issue}—that must have been really {emotional_tone}. I’ve just {resolution_action} and added your {next_best_offer} to your account so you can get back on track. How does that sound? Is there anything else I can do right now to make this easier for you?"
