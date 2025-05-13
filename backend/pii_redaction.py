@@ -23,7 +23,7 @@ def detect_and_redact(text: str):
     # Run standard Presidio detection
     results: list[RecognizerResult] = analyzer.analyze(
         text=text,
-        entities=["PHONE_NUMBER", "EMAIL_ADDRESS", "PERSON", "LOCATION", "DATE_TIME", "US_SSN"],
+        entities=["PHONE_NUMBER", "EMAIL_ADDRESS", "PERSON", "ADDRESS", "DATE_TIME", "ACCOUNT_ID", "US_SSN"],
         language="en"
     )
 
