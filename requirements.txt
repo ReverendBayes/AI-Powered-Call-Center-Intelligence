@@ -2,7 +2,7 @@
 fastapi==0.111.0
 uvicorn==0.19.0
 python-dotenv==1.0.1
-openai
+openai==0.28.0
 git+https://github.com/openai/whisper.git
 spacy==3.7.5
 presidio-analyzer
@@ -18,8 +18,10 @@ duckdb
 altair
 jupyter
 
-# --- Optional NLP Models ---
+# --- ML and NLP ---
 scikit-learn
+xgboost
+imbalanced-learn
 
 # --- Miscellaneous ---
 requests
