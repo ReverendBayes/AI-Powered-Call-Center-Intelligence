@@ -1,4 +1,4 @@
-*NOTE: This project is no longer maintained due to OpenAI's deprecation of Whisper compatibility with GPT-3.5. However, it can still be used by installing Whisper directly via pip install git+https://github.com/openai/whisper.git*
+*NOTE: This project is no longer maintained due to OpenAI's deprecation of Whisper compatibility with GPT-3.5. However, for now, it can still be used by installing Whisper directly via pip install git+https://github.com/openai/whisper.git*
 
 # AI-Powered Call Center Intelligence
 
